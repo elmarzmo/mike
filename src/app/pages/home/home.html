@@ -1,1 +1,225 @@
-<p>home works!</p>
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero__noise"></div>
+  <div class="hero__grid-overlay"></div>
+
+  <nav class="navbar" [class.scrolled]="isScrolled">
+    <div class="navbar__brand">
+      <span class="navbar__logo-mark">H</span>
+      <span class="navbar__logo-text">HomeHaven</span>
+    </div>
+    <ul class="navbar__links">
+      <li><a routerLink="/" class="nav-link active">Home</a></li>
+      <li><a routerLink="/services" class="nav-link">Services</a></li>
+      <li><a routerLink="/contact" class="nav-link">Contact</a></li>
+    </ul>
+    <a routerLink="/contact" class="btn btn--outline">Get Started</a>
+    <button class="navbar__hamburger" (click)="toggleMenu()" [class.open]="menuOpen">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" [class.open]="menuOpen">
+    <ul>
+      <li><a routerLink="/" (click)="toggleMenu()">Home</a></li>
+      <li><a routerLink="/services" (click)="toggleMenu()">Services</a></li>
+      <li><a routerLink="/contact" (click)="toggleMenu()">Contact</a></li>
+    </ul>
+  </div>
+
+  <div class="hero__content">
+    <div class="hero__eyebrow">
+      <span class="hero__dot"></span>
+      Housing Assistance &amp; Real Estate
+    </div>
+    <h1 class="hero__headline">
+      Find Your<br />
+      <span class="hero__headline--accent">Perfect Home,</span><br />
+      Stress&#8209;Free.
+    </h1>
+    <p class="hero__subtext">
+      From first-time buyers to families in transition — HomeHaven guides you
+      through every step with expert advice, personalized support, and real solutions.
+    </p>
+    <div class="hero__cta-group">
+      <a routerLink="/services" class="btn btn--gold">Explore Services</a>
+      <a routerLink="/contact" class="btn btn--ghost">
+        <span class="btn__play">▶</span> Book a Consultation
+      </a>
+    </div>
+    <div class="hero__stats">
+      <div class="stat">
+        <span class="stat__num">1,200<span class="stat__plus">+</span></span>
+        <span class="stat__label">Families Housed</span>
+      </div>
+      <div class="stat__divider"></div>
+      <div class="stat">
+        <span class="stat__num">98<span class="stat__pct">%</span></span>
+        <span class="stat__label">Client Satisfaction</span>
+      </div>
+      <div class="stat__divider"></div>
+      <div class="stat">
+        <span class="stat__num">15<span class="stat__plus">+</span></span>
+        <span class="stat__label">Years of Service</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__image-panel">
+    <div class="hero__image-frame">
+      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80"
+           alt="Luxury modern home exterior" class="hero__img" />
+      <div class="hero__image-tag">
+        <span class="tag__icon">🏠</span>
+        <div>
+          <div class="tag__title">New Listing</div>
+          <div class="tag__sub">3 beds · 2 baths · $485,000</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__scroll-hint">
+    <span>Scroll</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+<!-- Marquee Band -->
+<div class="marquee-band">
+  <div class="marquee-track">
+    <span *ngFor="let item of marqueeItems">{{ item }} <em>✦</em></span>
+    <span *ngFor="let item of marqueeItems">{{ item }} <em>✦</em></span>
+  </div>
+</div>
+
+<!-- Services Section -->
+<section class="services" id="services">
+  <div class="section-label">What We Offer</div>
+  <h2 class="section-title">Premium Services<br /><span>Tailored for You</span></h2>
+  <div class="services__grid">
+    <div class="service-card" *ngFor="let s of services; let i = index"
+         [style.animation-delay]="i * 0.1 + 's'">
+      <div class="service-card__number">{{ (i + 1).toString().padStart(2,'0') }}</div>
+      <div class="service-card__icon">{{ s.icon }}</div>
+      <h3 class="service-card__title">{{ s.title }}</h3>
+      <p class="service-card__desc">{{ s.desc }}</p>
+      <a routerLink="/services" class="service-card__link">Learn more →</a>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-it-works">
+  <div class="hiw__left">
+    <div class="section-label">Simple Process</div>
+    <h2 class="section-title">Your Journey<br /><span>to a New Home</span></h2>
+    <p class="hiw__body">
+      We've streamlined the path from search to settlement.
+      No jargon, no stress — just clear steps and expert support at every turn.
+    </p>
+    <a routerLink="/contact" class="btn btn--gold">Start Today</a>
+  </div>
+  <div class="hiw__steps">
+    <div class="hiw__step" *ngFor="let step of steps; let i = index">
+      <div class="hiw__step-num">{{ (i + 1).toString().padStart(2,'0') }}</div>
+      <div class="hiw__step-content">
+        <h4>{{ step.title }}</h4>
+        <p>{{ step.desc }}</p>
+      </div>
+      <div class="hiw__connector" *ngIf="i < steps.length - 1"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <div class="section-label">Client Stories</div>
+  <h2 class="section-title">Voices of<br /><span>Our Community</span></h2>
+  <div class="testimonials__grid">
+    <div class="testimonial-card" *ngFor="let t of testimonials; let i = index"
+         [class.testimonial-card--featured]="i === 1">
+      <div class="testimonial-card__quote">"</div>
+      <p class="testimonial-card__text">{{ t.text }}</p>
+      <div class="testimonial-card__author">
+        <div class="testimonial-card__avatar">{{ t.name[0] }}</div>
+        <div>
+          <div class="testimonial-card__name">{{ t.name }}</div>
+          <div class="testimonial-card__role">{{ t.role }}</div>
+        </div>
+        <div class="testimonial-card__stars">★★★★★</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="cta-banner">
+  <div class="cta-banner__glow"></div>
+  <div class="cta-banner__content">
+    <div class="section-label">Ready to Begin?</div>
+    <h2>Your Dream Home<br /><span>Is One Step Away</span></h2>
+    <p>Schedule a free consultation with one of our housing specialists today.</p>
+    <div class="cta-banner__actions">
+      <a routerLink="/contact" class="btn btn--gold">Book Free Consultation</a>
+      <a routerLink="/services" class="btn btn--ghost">View All Services</a>
+    </div>
+  </div>
+  <div class="cta-banner__image">
+    <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=600&q=80"
+         alt="Happy family in new home" />
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer__top">
+    <div class="footer__brand">
+      <div class="footer__logo">
+        <span class="navbar__logo-mark">H</span>
+        <span class="navbar__logo-text">HomeHaven</span>
+      </div>
+      <p class="footer__tagline">
+        Empowering families to find safe, stable, and beautiful homes since 2009.
+      </p>
+      <div class="footer__socials">
+        <a href="#" class="social-icon">in</a>
+        <a href="#" class="social-icon">𝕏</a>
+        <a href="#" class="social-icon">f</a>
+        <a href="#" class="social-icon">ig</a>
+      </div>
+    </div>
+    <div class="footer__links-group">
+      <div class="footer__col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#">Home Buying</a></li>
+          <li><a href="#">Rentals</a></li>
+          <li><a href="#">Housing Aid</a></li>
+          <li><a href="#">Relocation</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="#">hello&#64;homehaven.com</a></li>
+          <li><a href="#">+1 (800) 555-HOME</a></li>
+          <li><a href="#">123 Haven Blvd, Memphis TN</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 HomeHaven. All rights reserved.</span>
+    <span>Privacy Policy · Terms of Service</span>
+  </div>
+</footer>
