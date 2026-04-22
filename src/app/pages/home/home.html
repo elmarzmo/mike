@@ -3,29 +3,6 @@
   <div class="hero__noise"></div>
   <div class="hero__grid-overlay"></div>
 
-  <nav class="navbar" [class.scrolled]="isScrolled">
-    <div class="navbar__brand">
-      <span class="navbar__logo-mark">H</span>
-      <span class="navbar__logo-text">HomeHaven</span>
-    </div>
-    <ul class="navbar__links">
-      <li><a routerLink="/" class="nav-link active">Home</a></li>
-      <li><a routerLink="/services" class="nav-link">Services</a></li>
-      <li><a routerLink="/contact" class="nav-link">Contact</a></li>
-    </ul>
-    <a routerLink="/contact" class="btn btn--outline">Get Started</a>
-    <button class="navbar__hamburger" (click)="toggleMenu()" [class.open]="menuOpen">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <div class="mobile-menu" [class.open]="menuOpen">
-    <ul>
-      <li><a routerLink="/" (click)="toggleMenu()">Home</a></li>
-      <li><a routerLink="/services" (click)="toggleMenu()">Services</a></li>
-      <li><a routerLink="/contact" (click)="toggleMenu()">Contact</a></li>
-    </ul>
-  </div>
 
   <div class="hero__content">
     <div class="hero__eyebrow">
@@ -38,29 +15,21 @@
       Stress&#8209;Free.
     </h1>
     <p class="hero__subtext">
-      From first-time buyers to families in transition — HomeHaven guides you
-      through every step with expert advice, personalized support, and real solutions.
+      HomeHaven is a new kind of housing assistance service — built to make finding
+      a safe, stable, and beautiful home simple, personal, and stress-free for every family.
     </p>
     <div class="hero__cta-group">
       <a routerLink="/services" class="btn btn--gold">Explore Services</a>
       <a routerLink="/contact" class="btn btn--ghost">
-        <span class="btn__play">▶</span> Book a Consultation
+        <span class="btn__play">▶</span> Book a Free Consultation
       </a>
     </div>
-    <div class="hero__stats">
-      <div class="stat">
-        <span class="stat__num">1,200<span class="stat__plus">+</span></span>
-        <span class="stat__label">Families Housed</span>
-      </div>
-      <div class="stat__divider"></div>
-      <div class="stat">
-        <span class="stat__num">98<span class="stat__pct">%</span></span>
-        <span class="stat__label">Client Satisfaction</span>
-      </div>
-      <div class="stat__divider"></div>
-      <div class="stat">
-        <span class="stat__num">15<span class="stat__plus">+</span></span>
-        <span class="stat__label">Years of Service</span>
+
+    <div class="hero__launch-badge">
+      <span class="hero__badge-icon">🚀</span>
+      <div>
+        <div class="hero__badge-title">Now Open &amp; Accepting Clients</div>
+        <div class="hero__badge-sub">Be among our first — receive personalized, hands-on service.</div>
       </div>
     </div>
   </div>
@@ -69,13 +38,7 @@
     <div class="hero__image-frame">
       <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80"
            alt="Luxury modern home exterior" class="hero__img" />
-      <div class="hero__image-tag">
-        <span class="tag__icon">🏠</span>
-        <div>
-          <div class="tag__title">New Listing</div>
-          <div class="tag__sub">3 beds · 2 baths · $485,000</div>
-        </div>
-      </div>
+      
     </div>
   </div>
 
@@ -115,8 +78,8 @@
     <div class="section-label">Simple Process</div>
     <h2 class="section-title">Your Journey<br /><span>to a New Home</span></h2>
     <p class="hiw__body">
-      We've streamlined the path from search to settlement.
-      No jargon, no stress — just clear steps and expert support at every turn.
+      We've built a clear, straightforward path from your first question to your
+      front door. No jargon, no runaround — just honest guidance every step of the way.
     </p>
     <a routerLink="/contact" class="btn btn--gold">Start Today</a>
   </div>
@@ -132,22 +95,20 @@
   </div>
 </section>
 
-<!-- Testimonials -->
-<section class="testimonials">
-  <div class="section-label">Client Stories</div>
-  <h2 class="section-title">Voices of<br /><span>Our Community</span></h2>
-  <div class="testimonials__grid">
-    <div class="testimonial-card" *ngFor="let t of testimonials; let i = index"
-         [class.testimonial-card--featured]="i === 1">
-      <div class="testimonial-card__quote">"</div>
-      <p class="testimonial-card__text">{{ t.text }}</p>
-      <div class="testimonial-card__author">
-        <div class="testimonial-card__avatar">{{ t.name[0] }}</div>
-        <div>
-          <div class="testimonial-card__name">{{ t.name }}</div>
-          <div class="testimonial-card__role">{{ t.role }}</div>
-        </div>
-        <div class="testimonial-card__stars">★★★★★</div>
+<!-- Why Choose Us -->
+<section class="why-us">
+  <div class="why-us__inner">
+    <div class="section-label">Why HomeHaven</div>
+    <h2 class="section-title">Built Differently,<br /><span>From Day One</span></h2>
+    <p class="why-us__intro">
+      We may be new, but our commitment to doing this the right way is not.
+      Every decision we make is designed around one thing — your success in finding a home.
+    </p>
+    <div class="why-us__grid">
+      <div class="why-card" *ngFor="let w of whyItems">
+        <div class="why-card__icon">{{ w.icon }}</div>
+        <h4 class="why-card__title">{{ w.title }}</h4>
+        <p class="why-card__desc">{{ w.desc }}</p>
       </div>
     </div>
   </div>
@@ -159,7 +120,10 @@
   <div class="cta-banner__content">
     <div class="section-label">Ready to Begin?</div>
     <h2>Your Dream Home<br /><span>Is One Step Away</span></h2>
-    <p>Schedule a free consultation with one of our housing specialists today.</p>
+    <p>
+      We're currently welcoming our very first clients. Reach out today and get
+      direct, one-on-one attention from our founding team — no waiting, no queue.
+    </p>
     <div class="cta-banner__actions">
       <a routerLink="/contact" class="btn btn--gold">Book Free Consultation</a>
       <a routerLink="/services" class="btn btn--ghost">View All Services</a>
@@ -167,7 +131,7 @@
   </div>
   <div class="cta-banner__image">
     <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=600&q=80"
-         alt="Happy family in new home" />
+         alt="Modern home interior" />
   </div>
 </section>
 
@@ -180,7 +144,8 @@
         <span class="navbar__logo-text">HomeHaven</span>
       </div>
       <p class="footer__tagline">
-        Empowering families to find safe, stable, and beautiful homes since 2009.
+        A new housing assistance service dedicated to helping families find safe,
+        stable, and beautiful homes — one family at a time.
       </p>
       <div class="footer__socials">
         <a href="#" class="social-icon">in</a>
@@ -194,26 +159,25 @@
         <h5>Company</h5>
         <ul>
           <li><a href="#">About Us</a></li>
-          <li><a href="#">Our Team</a></li>
+          <li><a href="#">Our Mission</a></li>
           <li><a href="#">Careers</a></li>
-          <li><a href="#">Press</a></li>
         </ul>
       </div>
       <div class="footer__col">
         <h5>Services</h5>
         <ul>
-          <li><a href="#">Home Buying</a></li>
-          <li><a href="#">Rentals</a></li>
-          <li><a href="#">Housing Aid</a></li>
-          <li><a href="#">Relocation</a></li>
+          <li><a routerLink="/services">Home Buying</a></li>
+          <li><a routerLink="/services">Rentals</a></li>
+          <li><a routerLink="/services">Housing Aid</a></li>
+          <li><a routerLink="/services">Relocation</a></li>
         </ul>
       </div>
       <div class="footer__col">
         <h5>Contact</h5>
         <ul>
-          <li><a href="#">hello&#64;homehaven.com</a></li>
-          <li><a href="#">+1 (800) 555-HOME</a></li>
-          <li><a href="#">123 Haven Blvd, Memphis TN</a></li>
+          <li><a href="mailto:hello@homehaven.com">hello&#64;homehaven.com</a></li>
+          <li><a href="tel:+18005554663">+1 (800) 555-HOME</a></li>
+          <li><a routerLink="/contact">Send us a message</a></li>
         </ul>
       </div>
     </div>

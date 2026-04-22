@@ -72,25 +72,30 @@ export class Home implements OnInit {
     },
     {
       title: 'Move In',
-      desc: 'Celebrate the keys to your new home, backed by our continued post-move support network.',
+      desc: 'Celebrate the keys to your new home, backed by our continued post-move support.',
     },
   ];
 
-  testimonials = [
+  whyItems = [
     {
-      text: 'HomeHaven turned what felt impossible into reality. As a single mom, I didn\'t think I could afford a home. Their team found assistance programs I never knew existed. We moved in six weeks later.',
-      name: 'Latasha R.',
-      role: 'First-Time Homeowner, Memphis TN',
+      icon: '🎯',
+      title: 'Personal Attention',
+      desc: 'As a new business, every client matters deeply to us. You won\'t get lost in a system — you\'ll work directly with our team.',
     },
     {
-      text: 'The entire process from consultation to closing was handled with professionalism and genuine care. I\'ve never felt so supported during a major life decision. HomeHaven truly delivers on its name.',
-      name: 'Marcus & Diana W.',
-      role: 'Relocated from Atlanta, GA',
+      icon: '💡',
+      title: 'Fresh Approach',
+      desc: 'We built HomeHaven from scratch with modern tools and a client-first mindset — no outdated processes or red tape.',
     },
     {
-      text: 'When we were facing eviction, HomeHaven connected us to emergency rental assistance within 48 hours. They\'re not just a service — they\'re a lifeline.',
-      name: 'Jerome T.',
-      role: 'Housing Aid Client, Jackson MS',
+      icon: '🔍',
+      title: 'Transparent Process',
+      desc: 'We tell you exactly what\'s happening, what your options are, and what things cost. No surprises, ever.',
+    },
+    {
+      icon: '❤️',
+      title: 'Mission-Driven',
+      desc: 'We started HomeHaven because we believe everyone deserves a safe place to call home — that mission drives every decision.',
     },
   ];
 
