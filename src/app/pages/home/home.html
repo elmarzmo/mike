@@ -1,189 +1,185 @@
-<!-- Hero Section -->
+
+
+<!-- ═══ HERO ═══════════════════════════════════════════════════ -->
 <section class="hero">
-  <div class="hero__noise"></div>
-  <div class="hero__grid-overlay"></div>
+  <div class="hero__bg-shape"></div>
+  <div class="hero__bg-dots"></div>
 
-
-  <div class="hero__content">
-    <div class="hero__eyebrow">
-      <span class="hero__dot"></span>
-      Housing Assistance &amp; Real Estate
-    </div>
-    <h1 class="hero__headline">
-      Find Your<br />
-      <span class="hero__headline--accent">Perfect Home,</span><br />
-      Stress&#8209;Free.
-    </h1>
-    <p class="hero__subtext">
-      HomeHaven is a new kind of housing assistance service — built to make finding
-      a safe, stable, and beautiful home simple, personal, and stress-free for every family.
-    </p>
-    <div class="hero__cta-group">
-      <a routerLink="/services" class="btn btn--gold">Explore Services</a>
-      <a routerLink="/contact" class="btn btn--ghost">
-        <span class="btn__play">▶</span> Book a Free Consultation
-      </a>
-    </div>
-
-    <div class="hero__launch-badge">
-      <span class="hero__badge-icon">🚀</span>
-      <div>
-        <div class="hero__badge-title">Now Open &amp; Accepting Clients</div>
-        <div class="hero__badge-sub">Be among our first — receive personalized, hands-on service.</div>
+  <div class="hero__container">
+    <div class="hero__content">
+      <div class="hero__pill">
+        <span class="hero__pill-dot"></span>
+        Now Open — Free Consultations Available
       </div>
-    </div>
-  </div>
 
-  <div class="hero__image-panel">
-    <div class="hero__image-frame">
-      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80"
-           alt="Luxury modern home exterior" class="hero__img" />
-      
-    </div>
-  </div>
+      <h1 class="hero__title">
+        Everyone Deserves<br />
+        a Place to Call
+        <span class="hero__title-accent"> Home.</span>
+      </h1>
 
-  <div class="hero__scroll-hint">
-    <span>Scroll</span>
-    <div class="hero__scroll-line"></div>
-  </div>
-</section>
-
-<!-- Marquee Band -->
-<div class="marquee-band">
-  <div class="marquee-track">
-    <span *ngFor="let item of marqueeItems">{{ item }} <em>✦</em></span>
-    <span *ngFor="let item of marqueeItems">{{ item }} <em>✦</em></span>
-  </div>
-</div>
-
-<!-- Services Section -->
-<section class="services" id="services">
-  <div class="section-label">What We Offer</div>
-  <h2 class="section-title">Premium Services<br /><span>Tailored for You</span></h2>
-  <div class="services__grid">
-    <div class="service-card" *ngFor="let s of services; let i = index"
-         [style.animation-delay]="i * 0.1 + 's'">
-      <div class="service-card__number">{{ (i + 1).toString().padStart(2,'0') }}</div>
-      <div class="service-card__icon">{{ s.icon }}</div>
-      <h3 class="service-card__title">{{ s.title }}</h3>
-      <p class="service-card__desc">{{ s.desc }}</p>
-      <a routerLink="/services" class="service-card__link">Learn more →</a>
-    </div>
-  </div>
-</section>
-
-<!-- How It Works -->
-<section class="how-it-works">
-  <div class="hiw__left">
-    <div class="section-label">Simple Process</div>
-    <h2 class="section-title">Your Journey<br /><span>to a New Home</span></h2>
-    <p class="hiw__body">
-      We've built a clear, straightforward path from your first question to your
-      front door. No jargon, no runaround — just honest guidance every step of the way.
-    </p>
-    <a routerLink="/contact" class="btn btn--gold">Start Today</a>
-  </div>
-  <div class="hiw__steps">
-    <div class="hiw__step" *ngFor="let step of steps; let i = index">
-      <div class="hiw__step-num">{{ (i + 1).toString().padStart(2,'0') }}</div>
-      <div class="hiw__step-content">
-        <h4>{{ step.title }}</h4>
-        <p>{{ step.desc }}</p>
-      </div>
-      <div class="hiw__connector" *ngIf="i < steps.length - 1"></div>
-    </div>
-  </div>
-</section>
-
-<!-- Why Choose Us -->
-<section class="why-us">
-  <div class="why-us__inner">
-    <div class="section-label">Why HomeHaven</div>
-    <h2 class="section-title">Built Differently,<br /><span>From Day One</span></h2>
-    <p class="why-us__intro">
-      We may be new, but our commitment to doing this the right way is not.
-      Every decision we make is designed around one thing — your success in finding a home.
-    </p>
-    <div class="why-us__grid">
-      <div class="why-card" *ngFor="let w of whyItems">
-        <div class="why-card__icon">{{ w.icon }}</div>
-        <h4 class="why-card__title">{{ w.title }}</h4>
-        <p class="why-card__desc">{{ w.desc }}</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA Banner -->
-<section class="cta-banner">
-  <div class="cta-banner__glow"></div>
-  <div class="cta-banner__content">
-    <div class="section-label">Ready to Begin?</div>
-    <h2>Your Dream Home<br /><span>Is One Step Away</span></h2>
-    <p>
-      We're currently welcoming our very first clients. Reach out today and get
-      direct, one-on-one attention from our founding team — no waiting, no queue.
-    </p>
-    <div class="cta-banner__actions">
-      <a routerLink="/contact" class="btn btn--gold">Book Free Consultation</a>
-      <a routerLink="/services" class="btn btn--ghost">View All Services</a>
-    </div>
-  </div>
-  <div class="cta-banner__image">
-    <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=600&q=80"
-         alt="Modern home interior" />
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="footer__top">
-    <div class="footer__brand">
-      <div class="footer__logo">
-        <span class="navbar__logo-mark">H</span>
-        <span class="navbar__logo-text">HomeHaven</span>
-      </div>
-      <p class="footer__tagline">
-        A new housing assistance service dedicated to helping families find safe,
-        stable, and beautiful homes — one family at a time.
+      <p class="hero__desc">
+        Whether you're renting, buying, relocating, or just need guidance —
+        HomeHaven is here to walk beside you every step of the way.
+        No judgment. No confusion. Just real help.
       </p>
-      <div class="footer__socials">
-        <a href="#" class="social-icon">in</a>
-        <a href="#" class="social-icon">𝕏</a>
-        <a href="#" class="social-icon">f</a>
-        <a href="#" class="social-icon">ig</a>
+
+      <div class="hero__actions">
+        <a routerLink="/contact" class="btn btn--primary btn--lg">
+          Get Free Help Today
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a routerLink="/services" class="btn btn--ghost btn--lg">See Our Services</a>
+      </div>
+
+      <div class="hero__trust">
+        <div class="hero__trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Free consultation, no commitment
+        </div>
+        <div class="hero__trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          All housing situations welcome
+        </div>
+        <div class="hero__trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Personal, one-on-one support
+        </div>
       </div>
     </div>
-    <div class="footer__links-group">
-      <div class="footer__col">
-        <h5>Company</h5>
-        <ul>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Our Mission</a></li>
-          <li><a href="#">Careers</a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h5>Services</h5>
-        <ul>
-          <li><a routerLink="/services">Home Buying</a></li>
-          <li><a routerLink="/services">Rentals</a></li>
-          <li><a routerLink="/services">Housing Aid</a></li>
-          <li><a routerLink="/services">Relocation</a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h5>Contact</h5>
-        <ul>
-          <li><a href="mailto:hello@homehaven.com">hello&#64;homehaven.com</a></li>
-          <li><a href="tel:+18005554663">+1 (800) 555-HOME</a></li>
-          <li><a routerLink="/contact">Send us a message</a></li>
-        </ul>
+
+    <div class="hero__visual">
+      <div class="hero__img-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=85"
+          alt="A welcoming family home"
+          class="hero__img"
+        />
+        <div class="hero__img-card hero__img-card--top">
+          <div class="hero__card-icon">🏡</div>
+          <div>
+            <div class="hero__card-label">Housing Types We Help With</div>
+            <div class="hero__card-value">Rentals · Buying · Relocation</div>
+          </div>
+        </div>
+        <div class="hero__img-card hero__img-card--bottom">
+          <div class="hero__card-icon">💬</div>
+          <div>
+            <div class="hero__card-label">Consultation</div>
+            <div class="hero__card-value">100% Free · No Pressure</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="footer__bottom">
-    <span>© 2026 HomeHaven. All rights reserved.</span>
-    <span>Privacy Policy · Terms of Service</span>
+</section>
+
+<!-- ═══ WHO WE HELP ════════════════════════════════════════════ -->
+<section class="who-section">
+  <div class="who-section__inner">
+    <div class="section-tag">Who We Serve</div>
+    <h2 class="section-heading">We Help <span>All Kinds</span> of People<br />Find Housing</h2>
+    <p class="section-sub">
+      It doesn't matter where you're starting from.
+      If you need housing help, HomeHaven is for you.
+    </p>
+    <div class="who-grid">
+      <div class="who-card" *ngFor="let w of whoWeHelp">
+        <div class="who-card__emoji">{{ w.emoji }}</div>
+        <h4>{{ w.title }}</h4>
+        <p>{{ w.desc }}</p>
+      </div>
+    </div>
   </div>
-</footer>
+</section>
+
+<!-- ═══ SERVICES ═══════════════════════════════════════════════ -->
+<section class="services-section" id="services">
+  <div class="services-section__inner">
+    <div class="services-section__header">
+      <div>
+        <div class="section-tag">What We Do</div>
+        <h2 class="section-heading">Services Built<br /><span>Around You</span></h2>
+      </div>
+      <a routerLink="/services" class="btn btn--outline-green">View All Services →</a>
+    </div>
+    <div class="services-grid">
+      <div class="service-card" *ngFor="let s of services; let i = index">
+        <div class="service-card__icon">{{ s.icon }}</div>
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.desc }}</p>
+        <a routerLink="/services" class="service-card__link">
+          Learn more
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══════════════════════════════════════════ -->
+<section class="hiw-section">
+  <div class="hiw-section__inner">
+    <div class="hiw-section__left">
+      <div class="section-tag">Simple Process</div>
+      <h2 class="section-heading">Getting Help Is<br /><span>Easier Than You Think</span></h2>
+      <p class="hiw-section__body">
+        We've removed the complexity. From first contact to move-in day,
+        we handle the details so you can focus on what matters — your family and your future.
+      </p>
+      <a routerLink="/contact" class="btn btn--primary">Start the Process →</a>
+    </div>
+    <div class="hiw-section__steps">
+      <div class="hiw-step" *ngFor="let step of steps; let i = index; let last = last">
+        <div class="hiw-step__left">
+          <div class="hiw-step__num">{{ i + 1 }}</div>
+          <div class="hiw-step__line" *ngIf="!last"></div>
+        </div>
+        <div class="hiw-step__body">
+          <h4>{{ step.title }}</h4>
+          <p>{{ step.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MISSION BANNER ═════════════════════════════════════════ -->
+<section class="mission-section">
+  <div class="mission-section__inner">
+    <div class="mission-section__leaf">🌿</div>
+    <div class="mission-section__text">
+      <div class="section-tag section-tag--light">Our Mission</div>
+      <h2>"We started HomeHaven because we believe<br />every family deserves stability."</h2>
+      <p>
+        We're a brand new service, which means you'll get our full attention —
+        not a ticket number. We're building our reputation one family at a time,
+        and we take that seriously.
+      </p>
+      <a routerLink="/contact" class="btn btn--white-green">Talk to Us Today →</a>
+    </div>
+    <div class="mission-section__image">
+      <img
+        src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80"
+        alt="Family in their new home"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ════════════════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="cta-section__inner">
+    <div class="cta-section__icon">🚀</div>
+    <h2>We're Just Getting Started —<br /><span>And So Are You.</span></h2>
+    <p>
+      Be one of our first clients and receive personal, dedicated support from our founding team.
+      No waiting lists. No automated systems. Just real people helping real families.
+    </p>
+    <div class="cta-section__actions">
+      <a routerLink="/contact" class="btn btn--primary btn--lg">Book Your Free Consultation</a>
+      <a routerLink="/services" class="btn btn--ghost-white btn--lg">Explore Services</a>
+    </div>
+  </div>
+</section>
+

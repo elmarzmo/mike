@@ -8,13 +8,13 @@ import { RouterModule } from '@angular/router';
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.css'],
 })
-export class Navbar {
+export class NavbarComponent {
   isScrolled = false;
   menuOpen = false;
 
   @HostListener('window:scroll')
   onScroll(): void {
-    this.isScrolled = window.scrollY > 60;
+    this.isScrolled = window.scrollY > 50;
   }
 
   toggleMenu(): void {

@@ -1,23 +1,48 @@
 <nav class="navbar" [class.scrolled]="isScrolled">
-  <div class="navbar__brand">
-    <span class="navbar__logo-mark">H</span>
-    <span class="navbar__logo-text">HomeHaven</span>
-  </div>
+  <a routerLink="/" class="navbar__brand">
+    <div class="navbar__logo">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <path d="M14 3L3 12h3v12h6v-7h4v7h6V12h3L14 3z" fill="#2d6a4f"/>
+        <path d="M14 3L3 12h3v12h6v-7h4v7h6V12h3L14 3z" fill="url(#hg)" opacity="0.6"/>
+        <defs>
+          <linearGradient id="hg" x1="3" y1="3" x2="25" y2="24" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#52b788"/>
+            <stop offset="1" stop-color="#2d6a4f"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <span class="navbar__name">Home<strong>Haven</strong></span>
+  </a>
+
   <ul class="navbar__links">
     <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-link">Home</a></li>
     <li><a routerLink="/services" routerLinkActive="active" class="nav-link">Services</a></li>
     <li><a routerLink="/contact" routerLinkActive="active" class="nav-link">Contact</a></li>
   </ul>
-  <a routerLink="/contact" class="btn btn--outline">Get Started</a>
-  <button class="navbar__hamburger" (click)="toggleMenu()" [class.open]="menuOpen">
+
+  <div class="navbar__actions">
+    <a routerLink="/contact" class="btn btn--primary">Get Free Help →</a>
+  </div>
+
+  <button class="navbar__burger" (click)="toggleMenu()" [class.open]="menuOpen" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<div class="mobile-menu" [class.open]="menuOpen">
+<div class="mobile-drawer" [class.open]="menuOpen">
+  <button class="mobile-drawer__close" (click)="toggleMenu()">✕</button>
+  <a routerLink="/" class="mobile-drawer__brand">
+    <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+      <path d="M14 3L3 12h3v12h6v-7h4v7h6V12h3L14 3z" fill="#2d6a4f"/>
+    </svg>
+    Home<strong>Haven</strong>
+  </a>
   <ul>
     <li><a routerLink="/" (click)="toggleMenu()">Home</a></li>
     <li><a routerLink="/services" (click)="toggleMenu()">Services</a></li>
     <li><a routerLink="/contact" (click)="toggleMenu()">Contact</a></li>
   </ul>
+  <a routerLink="/contact" class="btn btn--primary" (click)="toggleMenu()">Get Free Help →</a>
 </div>
+<div class="mobile-overlay" [class.open]="menuOpen" (click)="toggleMenu()"></div>

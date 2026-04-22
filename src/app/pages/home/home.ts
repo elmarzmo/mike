@@ -1,112 +1,82 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { NavbarComponent } from '../../shared/navbar/navbar';
+import { FooterComponent } from '../../shared/footer/footer';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, NavbarComponent, FooterComponent],
   templateUrl: './home.html',
   styleUrls: ['./home.css'],
 })
 export class Home implements OnInit {
-  isScrolled = false;
-  menuOpen = false;
 
-  marqueeItems = [
-    'Housing Assistance',
-    'First-Time Buyers',
-    'Rental Support',
-    'Relocation Services',
-    'Property Search',
-    'Financial Guidance',
-    'Family Housing',
-    'Affordable Living',
+  whoWeHelp = [
+    { emoji: '👨‍👩‍👧', title: 'Families in Transition', desc: 'Going through a move, job change, or life event? We help you land on your feet with stable housing.' },
+    { emoji: '🔑', title: 'First-Time Buyers', desc: 'Never bought a home before? We walk you through every step and explain everything in plain language.' },
+    { emoji: '🏠', title: 'Renters Needing Help', desc: 'Struggling with rent, facing eviction, or looking for a better situation? We connect you to real resources.' },
+    { emoji: '📦', title: 'People Relocating', desc: 'Moving to a new city or state? We take the stress out of finding housing in an unfamiliar place.' },
+    { emoji: '💸', title: 'Those on a Tight Budget', desc: 'We know money is tight for many families. We specialize in finding options and aid programs that fit your budget.' },
+    { emoji: '🤲', title: 'Anyone Who Needs Guidance', desc: 'Not sure where to start? That\'s okay. Come talk to us. No situation is too complicated or too simple.' },
   ];
 
   services = [
     {
       icon: '🏡',
       title: 'Home Buying Assistance',
-      desc: 'Navigate the purchase process with expert guidance, from mortgage pre-approval to closing day — we\'re with you every step.',
+      desc: 'From understanding mortgages to closing day, we guide first-time and repeat buyers through the entire process.',
     },
     {
       icon: '🔑',
       title: 'Rental Placement',
-      desc: 'Find vetted, quality rentals that fit your budget and lifestyle. We negotiate on your behalf to secure the best terms.',
+      desc: 'We search for quality rentals that match your needs and budget, and we negotiate terms on your behalf.',
     },
     {
       icon: '🤝',
       title: 'Housing Aid Programs',
-      desc: 'Access federal, state, and local assistance programs. We help you qualify, apply, and receive the support you deserve.',
+      desc: 'We help you find, qualify for, and apply to federal, state, and local housing assistance programs.',
     },
     {
       icon: '📦',
-      title: 'Relocation Services',
-      desc: 'Moving to a new city? We handle the logistics — school districts, neighborhood research, and local resource connections.',
+      title: 'Relocation Support',
+      desc: 'Research neighborhoods, schools, and local services in your new city — we handle the legwork.',
     },
     {
       icon: '💼',
       title: 'Financial Counseling',
-      desc: 'Understand your options with personalized budget planning, credit coaching, and down payment assistance strategies.',
+      desc: 'Budgeting, credit coaching, and down payment strategies so you understand your options clearly.',
     },
     {
-      icon: '🏗️',
-      title: 'New Construction',
-      desc: 'Connect with top builders in your area. We review contracts, inspect builds, and ensure quality from foundation to roof.',
+      icon: '📋',
+      title: 'Application Assistance',
+      desc: 'Housing paperwork is confusing. We help you fill out applications correctly and completely the first time.',
     },
   ];
 
   steps = [
     {
+      title: 'Reach Out to Us',
+      desc: 'Call, email, or fill out our contact form. Tell us a little about your situation — there\'s no wrong answer.',
+    },
+    {
       title: 'Free Consultation',
-      desc: 'Tell us your situation, goals, and budget. We listen first — no pressure, no sales pitch.',
+      desc: 'We sit down with you (in person or virtually) and listen. No sales pitch — just an honest conversation about your options.',
     },
     {
-      title: 'Personalized Plan',
-      desc: 'We craft a tailored roadmap with programs, properties, and timelines designed around you.',
+      title: 'Your Personal Plan',
+      desc: 'We put together a clear, step-by-step plan tailored to your situation, budget, and timeline.',
     },
     {
-      title: 'Expert Guidance',
-      desc: 'Our specialists handle the complexity — paperwork, negotiations, applications — so you don\'t have to.',
+      title: 'We Work Together',
+      desc: 'We handle the hard parts — paperwork, calls, applications, negotiations — while keeping you informed throughout.',
     },
     {
-      title: 'Move In',
-      desc: 'Celebrate the keys to your new home, backed by our continued post-move support.',
-    },
-  ];
-
-  whyItems = [
-    {
-      icon: '🎯',
-      title: 'Personal Attention',
-      desc: 'As a new business, every client matters deeply to us. You won\'t get lost in a system — you\'ll work directly with our team.',
-    },
-    {
-      icon: '💡',
-      title: 'Fresh Approach',
-      desc: 'We built HomeHaven from scratch with modern tools and a client-first mindset — no outdated processes or red tape.',
-    },
-    {
-      icon: '🔍',
-      title: 'Transparent Process',
-      desc: 'We tell you exactly what\'s happening, what your options are, and what things cost. No surprises, ever.',
-    },
-    {
-      icon: '❤️',
-      title: 'Mission-Driven',
-      desc: 'We started HomeHaven because we believe everyone deserves a safe place to call home — that mission drives every decision.',
+      title: 'You Move In',
+      desc: 'You get the keys to your new home, with our continued support even after move-in day.',
     },
   ];
 
   ngOnInit(): void {}
-
-  @HostListener('window:scroll')
-  onScroll(): void {
-    this.isScrolled = window.scrollY > 60;
-  }
-
-  toggleMenu(): void {
-    this.menuOpen = !this.menuOpen;
-  }
 }
