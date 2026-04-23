@@ -17,7 +17,7 @@ export class Home implements OnInit {
     { emoji: '🏠', title: 'Renters Needing Help', desc: 'Struggling with rent, facing eviction, or looking for a better situation? We connect you to real resources.' },
     { emoji: '📦', title: 'People Relocating', desc: 'Moving to a new city or state? We take the stress out of finding housing in an unfamiliar place.' },
     { emoji: '💸', title: 'Those on a Tight Budget', desc: 'We know money is tight for many families. We specialize in finding options and aid programs that fit your budget.' },
-    { emoji: '🤲', title: 'Anyone Who Needs Guidance', desc: 'Not sure where to start? That\'s okay. Come talk to us. No situation is too complicated or too simple.' },
+    { emoji: '💬', title: 'Anyone Who Needs Guidance', desc: 'Not sure where to start? That\'s okay. Come talk to us. No situation is too complicated or too simple.' },
   ];
 
   services = [
