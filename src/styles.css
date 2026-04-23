@@ -1,1 +1,214 @@
 /* You can add global styles to this file, and also import other style files */
+/* ══════════════════════════════════════════════════════════════
+   styles.css  — HomeHaven Global Styles
+   Put this in src/styles.css (your angular.json "styles" entry)
+   All shared tokens, resets, and reusable classes live here
+   so Angular's component encapsulation never blocks them.
+══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* ─── Design Tokens ──────────────────────────────────────────── */
+:root {
+  --green-deep:   #2d6a4f;
+  --green-mid:    #40916c;
+  --green-light:  #52b788;
+  --green-pale:   #d8f3dc;
+  --green-tint:   #f0faf3;
+  --white:        #ffffff;
+  --cream:        #fafdf8;
+  --ink:          #1a2e22;
+  --ink-soft:     #4a6357;
+  --ink-faint:    #8aada0;
+  --border:       rgba(45, 106, 79, 0.15);
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'Plus Jakarta Sans', sans-serif;
+  --transition:   0.25s ease;
+  --radius:       16px;
+  --radius-sm:    10px;
+  --shadow-sm:    0 2px 12px rgba(45, 106, 79, 0.08);
+  --shadow-md:    0 8px 32px rgba(45, 106, 79, 0.13);
+  --shadow-lg:    0 20px 60px rgba(45, 106, 79, 0.16);
+}
+
+/* ─── Reset ──────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ─── Buttons  (global so encapsulation never blocks them) ───── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1;
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease,
+              border-color 0.25s ease, box-shadow 0.25s ease,
+              transform 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn--lg {
+  padding: 16px 32px;
+  font-size: 1rem;
+}
+
+/* ── Primary: dark green bg, white text ── */
+.btn--primary {
+  background: var(--green-deep);
+  color: #ffffff !important;
+  border-color: var(--green-deep);
+  box-shadow: 0 4px 16px rgba(45, 106, 79, 0.35);
+}
+.btn--primary:hover {
+  background: var(--green-mid);
+  border-color: var(--green-mid);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(45, 106, 79, 0.45);
+}
+
+/* ── Ghost: white bg, dark border, dark text ── */
+.btn--ghost {
+  background: #ffffff;
+  color: var(--ink) !important;
+  border-color: #8aada0;
+}
+.btn--ghost:hover {
+  background: var(--green-tint);
+  border-color: var(--green-mid);
+  color: var(--green-deep) !important;
+}
+
+/* ── Ghost White: for use on dark/green backgrounds ── */
+.btn--ghost-white {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.75);
+}
+.btn--ghost-white:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: #ffffff;
+}
+
+/* ── Outline Green: white bg, green border & text ── */
+.btn--outline-green {
+  background: #ffffff;
+  color: var(--green-deep) !important;
+  border-color: var(--green-mid);
+}
+.btn--outline-green:hover {
+  background: var(--green-tint);
+  border-color: var(--green-deep);
+}
+
+/* ── White Green: white bg, green text, for dark sections ── */
+.btn--white-green {
+  background: #ffffff;
+  color: var(--green-deep) !important;
+  border-color: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+.btn--white-green:hover {
+  background: var(--green-pale);
+  transform: translateY(-1px);
+}
+
+/* ── Navbar outline ── */
+.btn--outline {
+  background: transparent;
+  color: var(--ink) !important;
+  border-color: #8aada0;
+}
+.btn--outline:hover {
+  background: var(--green-tint);
+  border-color: var(--green-mid);
+  color: var(--green-deep) !important;
+}
+
+/* ─── Shared Section Helpers ─────────────────────────────────── */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  background: var(--green-tint);
+  border: 1px solid var(--green-pale);
+  padding: 5px 13px;
+  border-radius: 50px;
+  margin-bottom: 16px;
+}
+
+.section-tag--light {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.section-heading span { color: var(--green-deep); }
+
+.section-sub {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 520px;
+  margin-bottom: 48px;
+}
+
+/* ─── Animations ─────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
