@@ -1,1 +1,143 @@
-<p>contact works!</p>
+
+<!-- ═══ HERO ═════════════════════════════════════════════════════ -->
+<section class="contact-hero">
+  <div class="contact-hero__inner">
+    <div class="contact-hero__content">
+      <h1 class="contact-hero__title">We're Here<br /><span>to Help.</span></h1>
+      <p class="contact-hero__desc">
+        Have questions? Need guidance? Ready to get started?
+        Reach out to us any way that works best for you.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT METHODS ═════════════════════════════════════════ -->
+<section class="contact-methods-section">
+  <div class="contact-methods-section__inner">
+    <div class="section-tag">Get in Touch</div>
+    <h2 class="section-heading">Multiple Ways<br /><span>to Reach Us</span></h2>
+    <p class="section-sub">
+      Pick whatever is easiest for you. We're responsive, friendly, and ready to listen.
+    </p>
+
+    <div class="methods-grid">
+
+      <!-- Phone Card -->
+      <div class="method-card">
+        <div class="method-card__icon">📞</div>
+        <h3>Call Us</h3>
+        <p>Speak directly with a housing specialist</p>
+        <a href="tel:+18005554663" class="method-card__link">
+          <strong>+1 (800) 555-HOME</strong>
+        </a>
+        <div class="method-card__meta">
+          <span class="method-card__status">●</span>
+          Mon–Fri, 8am–6pm EST
+        </div>
+      </div>
+
+      <!-- Email Card -->
+      <div class="method-card">
+        <div class="method-card__icon">✉️</div>
+        <h3>Email Us</h3>
+        <p>We'll respond within 24 hours</p>
+        <a href="mailto:hello@homehaven.com" class="method-card__link">
+          <strong>hello&#64;homehaven.com</strong>
+        </a>
+        <div class="method-card__meta">
+          Response time: Usually under 2 hours
+        </div>
+      </div>
+
+      <!-- Office Card -->
+      <div class="method-card">
+        <div class="method-card__icon">🏢</div>
+        <h3>Visit Us</h3>
+        <p>Come by our office in person</p>
+        <div class="method-card__address">
+          <strong>123 Haven Boulevard</strong><br />
+          Memphis, TN 38103
+        </div>
+        <div class="method-card__meta">
+          Appointments recommended — call ahead
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ADDITIONAL INFO SECTION ═════════════════════════════════ -->
+<section class="contact-info-section">
+  <div class="contact-info-section__inner">
+    <div class="info-box">
+      <h3>What to Expect</h3>
+      <ul class="info-list">
+        <li><strong>No Pressure:</strong> We listen first. Ask questions. No sales pitch.</li>
+        <li><strong>No Judgment:</strong> Whatever your situation, we've heard it. We're here to help.</li>
+        <li><strong>Free Guidance:</strong> Your first consultation is completely free, no obligation.</li>
+        <li><strong>Real People:</strong> You'll talk to someone on our team, not an automated system.</li>
+      </ul>
+    </div>
+
+    <div class="info-box">
+      <h3>Having an Urgent Issue?</h3>
+      <p>
+        If you're facing eviction, homelessness, or another housing emergency, 
+        <strong>call us immediately at (800) 555-HOME</strong>.
+      </p>
+      <p style="margin-top: 12px;">
+        If it's after hours, leave a message and we'll prioritize your call first thing in the morning.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>We're New — That's Good For You</h3>
+      <p>
+        HomeHaven just launched. That means when you reach out, you'll get 
+        personal, hands-on attention from our founding team. No waiting. No ticket numbers. 
+        Just real people dedicated to helping you find a home.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ SECTION ═════════════════════════════════════════════ -->
+<section class="faq-section">
+  <div class="faq-section__inner">
+    <div class="section-tag">Questions?</div>
+    <h2 class="section-heading">Common Questions<br /><span>About Contacting Us</span></h2>
+
+    <div class="faq-grid">
+      <div class="faq-item" *ngFor="let item of faqItems">
+        <button class="faq-item__trigger" (click)="toggleFaq(item.id)" [class.open]="openFaqId === item.id">
+          <span>{{ item.q }}</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="faq-item__content" *ngIf="openFaqId === item.id">
+          {{ item.a }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA CLOSING ═════════════════════════════════════════════ -->
+<section class="contact-closing">
+  <div class="contact-closing__inner">
+    <h2>Ready to Take the Next Step?</h2>
+    <p>Your housing situation deserves expert, personal attention. Let's talk.</p>
+    <div class="contact-closing__actions">
+      <a href="tel:+18005554663" class="btn btn--white-green btn--lg">
+        Call Us Now
+      </a>
+      <a href="mailto:hello@homehaven.com" class="btn btn--ghost-white btn--lg">
+        Send an Email
+      </a>
+    </div>
+  </div>
+</section>
+
