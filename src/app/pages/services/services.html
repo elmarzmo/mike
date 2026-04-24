@@ -1,1 +1,155 @@
-<p>services works!</p>
+<!-- ═══ HERO ═════════════════════════════════════════════════════ -->
+<section class="services-hero">
+  <div class="services-hero__inner">
+    <h1 class="services-hero__title">Services Built<br /><span>for Your Situation</span></h1>
+    <p class="services-hero__desc">
+      Whether you're renting, buying, relocating, or facing a housing crisis,
+      we have a service designed to help. All consultations are free.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ ALL SERVICES ══════════════════════════════════════════════ -->
+<section class="services-main">
+  <div class="services-main__inner">
+    <div class="section-tag">Our Services</div>
+    <h2 class="section-heading">Complete Housing<br /><span>Support Services</span></h2>
+    <p class="section-sub">
+      Pick the service that matches your needs. We can also combine multiple services
+      for comprehensive support.
+    </p>
+
+    <div class="services-cards">
+      <div class="service-card-detailed" *ngFor="let service of services; let i = index">
+        <div class="service-card-detailed__header">
+          <div class="service-card-detailed__icon">{{ service.icon }}</div>
+          <div>
+            <h3>{{ service.title }}</h3>
+            <p class="service-card-detailed__subtitle">{{ service.subtitle }}</p>
+          </div>
+        </div>
+
+        <p class="service-card-detailed__desc">{{ service.description }}</p>
+
+        <div class="service-card-detailed__what">
+          <h4>What's Included:</h4>
+          <ul class="service-card-detailed__list">
+            <li *ngFor="let item of service.includes">{{ item }}</li>
+          </ul>
+        </div>
+
+        <div class="service-card-detailed__pricing">
+          <h4>Investment:</h4>
+          <div class="pricing-display">
+            <span class="pricing-badge" [ngClass]="service.pricingClass">
+              {{ service.pricing }}
+            </span>
+            <span class="pricing-note" *ngIf="service.pricingNote">{{ service.pricingNote }}</span>
+          </div>
+        </div>
+
+        <div class="service-card-detailed__timeline" *ngIf="service.timeline">
+          <h4>Timeline:</h4>
+          <p>{{ service.timeline }}</p>
+        </div>
+
+        <div class="service-card-detailed__cta">
+          <a routerLink="/contact" class="btn btn--primary">
+            Learn More →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICE COMPARISON TABLE ═════════════════════════════════ -->
+<section class="comparison-section">
+  <div class="comparison-section__inner">
+    <div class="section-tag">At a Glance</div>
+    <h2 class="section-heading">Service<br /><span>Comparison</span></h2>
+
+    <div class="comparison-table-wrapper">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Best For</th>
+            <th>Consultation</th>
+            <th>Timeline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let service of services">
+            <td>
+              <strong>{{ service.title }}</strong>
+            </td>
+            <td>{{ service.bestFor }}</td>
+            <td class="text-center">{{ service.consultation }}</td>
+            <td>{{ service.timelineShort }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═════════════════════════════════════════════ -->
+<section class="service-process">
+  <div class="service-process__inner">
+    <div class="section-tag">Every Service</div>
+    <h2 class="section-heading">Our Standard<br /><span>Process</span></h2>
+    <p class="section-sub">
+      Regardless of which service you choose, here's how we work with you.
+    </p>
+
+    <div class="process-steps">
+      <div class="process-step" *ngFor="let step of processSteps; let i = index; let last = last">
+        <div class="process-step__number">{{ i + 1 }}</div>
+        <div class="process-step__content">
+          <h4>{{ step.title }}</h4>
+          <p>{{ step.desc }}</p>
+        </div>
+        <div class="process-step__arrow" *ngIf="!last">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ SECTION ══════════════════════════════════════════════ -->
+<section class="service-faq">
+  <div class="service-faq__inner">
+    <div class="section-tag">Questions?</div>
+    <h2 class="section-heading">Service<br /><span>FAQs</span></h2>
+
+    <div class="faq-grid">
+      <div class="faq-item" *ngFor="let item of faqItems">
+        <button class="faq-item__trigger" (click)="toggleFaq(item.id)" [class.open]="openFaqId === item.id">
+          <span>{{ item.q }}</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="faq-item__content" *ngIf="openFaqId === item.id">
+          {{ item.a }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA CLOSING ═════════════════════════════════════════════ -->
+<section class="services-closing">
+  <div class="services-closing__inner">
+    <h2>Not Sure Which Service Is Right?</h2>
+    <p>Schedule a free consultation and we'll figure it out together.</p>
+    <div class="services-closing__actions">
+      <a routerLink="/contact" class="btn btn--white-green btn--lg">
+        Talk to Us Today
+      </a>
+      <a href="mailto:hello@homehaven.com" class="btn btn--ghost-white btn--lg">
+        Email with Questions
+      </a>
+    </div>
+  </div>
+</section>
